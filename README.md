@@ -5,20 +5,21 @@ Users Authentication List:
 Superuser: Django Admin Panel
 
 UserName  = raghu
-PWD       = project123
+PASSWORD  = project123
 
 
 Consultants:
 -------------------------------------
 
-UserName  = suresh
-PWD       = project123
+UserName  = suresh                     
+PASSWORD  = project123
 
-UserName  = ramesh
-PWD       = project123
 
-UserName  = kiran
-PWD       = project123
+UserName  = ramesh                
+PASSWORD  = project123
 
-UserName  = priyanka
-PWD       = project123
+UserName  = kiran        
+PASSWORD  = project123
+
+UserName  = priyanka        
+PASSWORD  = project123
