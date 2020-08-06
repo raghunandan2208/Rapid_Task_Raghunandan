@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+<br><br><br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><a href="{% url 'consultant-dashboard' %}">Consultant Dashboard</a></th>
+      <th><a href="{% url 'training-dashboard' %}">Training</a></th>
+      <th><a href="{% url 'prospect-dashboard' %}">Prospect</a></th>
+      <th><a href="{% url 'bench-list-dashboard' %}">Bench List</a></th>
+      <th><a href="{% url 'on-project-dashboard' %}">On Project</a></th>
+    </tr>
+  </thead>
+  </table>
+
+  <h1>Training</h1><br><br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Consultant Name</th>
+        <th>Technology</th>
+        <th>Training Status</th>
+        <th>Training StartDate</th>
+        <th>Training EndDate</th>
+        <th>Availability</th>
+        <th>Trainer Rating</th>
+        <th>Comments</th>
+      </tr>
+      <tbody>
+        {% for tr in training %}
+        <tr>
+          <td>{{tr.employee_id}}</td>
+          <td>{{tr.employee}}</td>
+          <td>{{tr.technology}}</td>
+          <td>{{tr.training_status}}</td>
+          <td>{{tr.start_date}}</td>
+          <td>{{tr.end_date}}</td>
+          <td>{{tr.availability_date}}</td>
+          <td>{{tr.trainer_rating}}</td>
+          <td>{{tr.trainer_comments}}</td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </thead>
+    </table>
+
+  </div>
+{% endblock %}

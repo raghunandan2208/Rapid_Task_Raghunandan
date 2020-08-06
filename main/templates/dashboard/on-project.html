@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+<br><br><br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><a href="{% url 'consultant-dashboard' %}">Consultant Dashboard</a></th>
+      <th><a href="{% url 'training-dashboard' %}">Training</a></th>
+      <th><a href="{% url 'prospect-dashboard' %}">Prospect</a></th>
+      <th><a href="{% url 'bench-list-dashboard' %}">Bench List</a></th>
+      <th><a href="{% url 'on-project-dashboard' %}">On Project</a></th>
+    </tr>
+  </thead>
+  </table>
+
+  <h1>On Project</h1><br><br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Consultant Name</th>
+        <th>Job Title</th>
+        <th>Technology</th>
+        <th>Client</th>
+        <th>Client City, State</th>
+        <th>Vendor Company</th>
+        <th>Vendor Contact</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Project StartDate</th>
+        <th>Project EndDate</th>
+        <th>Rate</th>
+      </tr>
+      <tbody>
+        {% for prj in project %}
+        <tr>
+          <td>{{prj.employee_id}}</td>
+          <td>{{prj.employee}}</td>
+          <td>{{prj.job_title}}</td>
+          <td>{{prj.technology}}</td>
+          <td>{{prj.client}}</td>
+          <td>{{prj.client_city}}</td>
+          <td>{{prj.vendor}}</td>
+          <td>{{prj.vendor_contact}}</td>
+          <td>{{prj.phone}}</td>
+          <td>{{prj.email}}</td>
+          <td>{{prj.start_date}}</td>
+          <td>{{prj.end_date}}</td>
+          <td>{{prj.rate}}</td>
+
+        </tr>
+        {% endfor %}
+
+
+
+      </tbody>
+    </thead>
+    </table>
+
+  </div>
+{% endblock %}

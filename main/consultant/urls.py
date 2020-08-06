@@ -1,0 +1,62 @@
+from django.urls import path
+from consultant.views import (  employee_details,
+                                UserCreateView,
+                                PersonalDetailsView,
+                                OfficialDetailsView,
+                                TrainingDetailsView,
+                                ProjectDetailsView,
+                                FinancialDetailsView,
+                                InvoicingDetailsView,
+                                BenchDetailsView,
+                                ProspectDetailsView,
+                                PersonalDetailsUpdateView,
+                                OfficialDetailsUpdateView,
+                                TrainingDetailsUpdateView,
+                                ProjectDetailsUpdateView,
+                                FinancialDetailsUpdateView,
+                                InvoicingDetailsUpdateView,
+                                BenchDetailsUpdateView,
+                                ProspectDetailsUpdateView,
+                                )
+from django.contrib.auth.views import ( LoginView,
+                                        LogoutView,
+                                        PasswordResetView,
+                                        PasswordResetDoneView,
+                                        PasswordResetConfirmView,
+                                        PasswordResetCompleteView,
+                                        PasswordChangeView,
+                                        PasswordChangeDoneView )
+
+
+urlpatterns = [
+
+    path('', employee_details, name='employee_details'),
+
+    path('login/', LoginView.as_view(template_name = "connect/login.html"), name='login'),
+    path('signup/', UserCreateView.as_view(), name='signup'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('password-reset/', PasswordResetView.as_view(template_name="connect/password_reset_form.html", email_template_name="connect/password_reset_email.html"), name='password_reset'),
+    path('password-reset/done/', PasswordResetDoneView.as_view(template_name="connect/password_reset_done.html"), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name="connect/password_confirm.html"), name='password_reset_confirm'),
+    path('reset/done/', PasswordResetCompleteView.as_view(template_name="connect/password_reset_complete.html"), name='password_reset_complete'),
+    path('password-change/', PasswordChangeView.as_view(template_name='connect/password_change.html'), name='password_change'),
+    path('password-change/done/', PasswordChangeDoneView.as_view(template_name='connect/password_change_done.html'), name='password_change_done'),
+
+    path('personal', PersonalDetailsView.as_view(), name="personal"),
+    path('official', OfficialDetailsView.as_view(), name="official"),
+    path('training', TrainingDetailsView.as_view(), name="training"),
+    path('project', ProjectDetailsView.as_view(), name="project"),
+    path('finance', FinancialDetailsView.as_view(), name="finance"),
+    path('invoicing', InvoicingDetailsView.as_view(), name="invoicing"),
+    path('bench', BenchDetailsView.as_view(), name="bench"),
+    path('prospect', ProspectDetailsView.as_view(), name="prospect"),
+    path('personal-update/<int:pk>', PersonalDetailsUpdateView.as_view(), name="personal-update"),
+    path('official-update/<int:pk>', OfficialDetailsUpdateView.as_view(), name="official-update"),
+    path('training-update/<int:pk>', TrainingDetailsUpdateView.as_view(), name="training-update"),
+    path('project-update/<int:pk>', ProjectDetailsUpdateView.as_view(), name="project-update"),
+    path('finance-update/<int:pk>', FinancialDetailsUpdateView.as_view(), name="finance-update"),
+    path('invoicing-update/<int:pk>', InvoicingDetailsUpdateView.as_view(), name="invoicing-update"),
+    path('bench-update/<int:pk>', BenchDetailsUpdateView.as_view(), name="bench-update"),
+    path('prospect-update/<int:pk>', ProspectDetailsUpdateView.as_view(), name="prospect-update"),
+
+]

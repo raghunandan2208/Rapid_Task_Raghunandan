@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<br><br>
+    <h1 style="text-align: center;">Employee Details</h1><br><br>
+
+    <div class="row">
+      <div class="col-6">
+
+
+        {% if user.id != emp_personal.employee_id %}
+        <a href="{% url 'personal' %}"><button class="btn btn-primary" type="button" >Personal Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'personal-update' emp_personal.id %}"><button class="btn btn-primary" type="button" >Personal Details</button></a><br><br>
+        {% endif %}
+
+        {% if user.id != emp_official.employee_id %}
+        <a href="{% url 'official' %}"><button class="btn btn-primary" type="button" >Official Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'official-update' emp_official.id %}"><button class="btn btn-primary" type="button" >Official Details</button></a><br><br>
+        {% endif %}
+
+        <a href="#"><button class="btn btn-primary" type="button" >Immigration Details</button></a><br><br>
+
+        </div>
+        <div class="col-6">
+
+        {% if emp_official.employee_status == 'On-Project' %}
+        {% if user.id != emp_project.employee_id %}
+        <a href="{% url 'project' %}"><button class="btn btn-primary" type="button" >Project Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'project-update' emp_project.id %}"><button class="btn btn-primary" type="button" >Project Details</button></a><br><br>
+        {% endif %}
+        {% endif %}
+
+        {% if user.id != emp_finance.employee_id %}
+        <a href="{% url 'finance' %}"><button class="btn btn-primary" type="button" >Financial Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'finance-update' emp_finance.id %}"><button class="btn btn-primary" type="button" >Finance Details</button></a><br><br>
+        {% endif %}
+
+        {% if user.id != emp_invoice.employee_id %}
+        <a href="{% url 'invoicing' %}"><button class="btn btn-primary" type="button" >Invoicing Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'invoicing-update' emp_invoice.id %}"><button class="btn btn-primary" type="button" >Invoicing Details</button></a><br><br>
+        {% endif %}
+
+
+        {% if emp_official.employee_status == 'T&P' %}
+        {% if user.id != emp_training.employee_id %}
+        <a href="{% url 'training' %}"><button class="btn btn-primary" type="button" >Training Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'training-update' emp_training.id %}"><button class="btn btn-primary" type="button" >Training Details</button></a><br><br>
+        {% endif %}
+        {% endif %}
+
+        {% if emp_official.employee_status == 'Bench' %}
+        {% if user.id != emp_bench.employee_id %}
+        <a href="{% url 'bench' %}"><button class="btn btn-primary" type="button" >Bench Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'bench-update' emp_bench.id %}"><button class="btn btn-primary" type="button" >Bench Details</button></a><br><br>
+        {% endif %}
+        {% endif %}
+
+        {% if emp_official.employee_status == 'Prospect' %}
+        {% if user.id != emp_prospect.employee_id %}
+        <a href="{% url 'prospect' %}"><button class="btn btn-primary" type="button" >Prospect Details</button></a><br><br>
+        {% else %}
+        <a href="{% url 'prospect-update' emp_prospect.id %}"><button class="btn btn-primary" type="button" >Prospect Details</button></a><br><br>
+        {% endif %}
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+<br><br><br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><a href="{% url 'consultant-dashboard' %}">Consultant Dashboard</a></th>
+      <th><a href="{% url 'training-dashboard' %}">Training</a></th>
+      <th><a href="{% url 'prospect-dashboard' %}">Prospect</a></th>
+      <th><a href="{% url 'bench-list-dashboard' %}">Bench List</a></th>
+      <th><a href="{% url 'on-project-dashboard' %}">On Project</a></th>
+    </tr>
+  </thead>
+  </table>
+
+  <a href="{% url 'employee_details' %}"><button class="btn btn-primary" type="button" >Add Consultant</button></a>
+
+  </div>
+
+{% endblock %}

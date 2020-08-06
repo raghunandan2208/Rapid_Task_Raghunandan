@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+<br><br><br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><a href="{% url 'consultant-dashboard' %}">Consultant Dashboard</a></th>
+      <th><a href="{% url 'training-dashboard' %}">Training</a></th>
+      <th><a href="{% url 'prospect-dashboard' %}">Prospect</a></th>
+      <th><a href="{% url 'bench-list-dashboard' %}">Bench List</a></th>
+      <th><a href="{% url 'on-project-dashboard' %}">On Project</a></th>
+    </tr>
+  </thead>
+  </table>
+
+  <h1>Bench List</h1><br><br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Consultant Name</th>
+        <th>Visa</th>
+        <th>Availability</th>
+        <th>Bench Days</th>
+      </tr>
+      <tbody>
+        {% for bch in bench %}
+        <tr>
+          <td>{{bch.employee_id}}</td>
+          <td>{{bch.employee}}</td>
+          <td>{{bch.visa}}</td>
+          <td>{{bch.availability_date}}</td>
+          <td>{{bch.bench_days}}</td>
+
+        </tr>
+        {% endfor %}
+
+
+
+      </tbody>
+    </thead>
+    </table>
+
+  </div>
+{% endblock %}
