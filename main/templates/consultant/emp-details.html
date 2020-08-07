@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-<br><br>
+<br><br><br>
     <h1 style="text-align: center;">Employee Details</h1><br><br>
 
     <div class="row">
@@ -20,8 +20,10 @@
         {% else %}
         <a href="{% url 'official-update' emp_official.id %}"><button class="btn btn-primary" type="button" >Official Details</button></a><br><br>
         {% endif %}
+        <p><strong>Note:</strong> If the User chooses "Employee Status" in <strong>Official Details</strong> Form, the following respective buttons (Training Details, Bech Details, Project Details, Prospect Details) will be visible. </p>
 
         <a href="#"><button class="btn btn-primary" type="button" >Immigration Details</button></a><br><br>
+        <p><strong>Note:</strong> Immigration Details table was not provided in doccumentation.</p>
 
         </div>
         <div class="col-6">
